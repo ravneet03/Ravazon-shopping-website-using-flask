@@ -3,13 +3,13 @@ import data
 import time
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Secret key for Flask sessions
+app.secret_key = 'your_secret_key'  
 dat = data.data
 
 @app.route("/")
 def homepage():
     arr = ['home.html', 'product.html']
-    message = session.pop('message', None)  # Get and clear the message from session
+    message = session.pop('message', None) 
     return render_template(arr, data=dat)
 
 @app.route("/add_to_cart/<int:item_id>")
@@ -20,7 +20,7 @@ def add_to_cart(item_id):
         cart = session.get('cart', [])
         cart.append(item)
         session['cart'] = cart
-        session['message'] = f"{item['name']} added to cart"  # Set the message
+        session['message'] = f"{item['name']} added to cart" 
         time.sleep(1) 
         return redirect(url_for('homepage'))
     else:

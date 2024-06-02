@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cart.css') }}">
+    <title>Cart</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="{{url_for('homepage')}}">Ravazon</a>
+        <div class="navbar-items">
+            <div class="search-bar">
+                <input type="text" class="form-control" placeholder="Search">
+                <button class="btn btn-outline-success">Search</button>
+            </div>
+        
+            <div class="buttons">
+                
+                <a href="{{url_for('cart')}}" class="btn btn-info cart">Cart</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="cart-items">
+        <h2>Your Cart</h2>
+        
+        {% if cart_items %}
+            <ul>
+                {% for item in cart_items %}
+                    <li>
+                        <img src="{{ item.image }}" alt="{{ item.name }}" >
+                        <h4>{{ item.name }}</h4>
+                        <p>-----</p>
+                        <h4>Price: ₹{{ item.price }}</h4>
+                        <form action="{{ url_for('remove_from_cart', item_id=item.id) }}" method="post">
+                            <button type="submit" class="btn btn-danger">Remove</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+            
+            
+            <div class="total-price-container">
+                <span class="total-price">Total: ₹{{ total_price }}</span>
+                <button class="checkout-btn">Checkout</button>
+            </div>
+                        
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+
+    
+    </div>
+    
+    <!-- Include necessary scripts for Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

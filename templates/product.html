@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product</title>
+  <link rel="stylesheet"  type="text/css" href="{{ url_for('static',filename='product.css')}}"
+</head>
+<body>
+  
+  <div class="cards">
+    {% for items in data %}
+    <div class="product-card">
+      <img src={{items.image}} alt="Product Image">
+      <h4>{{items.name}}</h4>
+      <p>{{items.des}}</p>
+      <div>
+          <span>₹{{items.price}}</span>
+          <button>+</button>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

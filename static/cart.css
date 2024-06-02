@@ -1,0 +1,134 @@
+/* Styles for Cart Page */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #040303;
+    color: #fff;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #f70404;
+}
+
+.cart {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+  }
+.navbar-items {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    margin-right: 20px;
+}
+
+.form-control {
+    margin-right: 10px;
+}
+
+.cart-items {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+img {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.total-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.total-price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.checkout-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+/* Add this to your cart.css */
+.notification {
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 15px;
+}

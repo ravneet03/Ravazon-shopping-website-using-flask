@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="{{url_for('homepage')}}">Ravazon</a>
+        <div class="navbar-items">
+            <div class="search-bar">
+                <input type="text" class="form-control" placeholder="Search">
+                <button class="btn btn-outline-success">Search</button>
+            </div>
+        
+            <div class="buttons">
+                
+                <a href="{{url_for('cart')}}" class="btn btn-info cart">Cart</a>
+            </div>
+        </div>
+    </nav>
+ <div class="container mt-4">
+
+        <div class="cards">
+        {% for items in data %}
+        <div class="product-card">
+          <img src={{items.image}} alt="Product Image">
+          <h4>{{items.name}}</h4>
+          <p>{{items.des}}</p>
+          <div>
+              <span>₹{{items.price}}</span>
+              <a href="{{url_for('add_to_cart', item_id=items.id)}}" class="btn btn-success">+</a>
+              
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flashes">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- Meta Refresh for Flash Messages -->
+                <meta http-equiv="refresh" content="1;url={{ request.path }}">
+            {% endif %}
+        {% endwith %}
+
+        {% if message %}
+    <div class="notification">
+        <p>{{ message }}</p>
+    </div>
+    {% endif %}
+
+    </div>
+    <!-- Inside home.html or product.html -->
+
+
+    
+    <!-- Include necessary scripts for Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
